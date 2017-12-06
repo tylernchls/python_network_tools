@@ -1,1 +1,2 @@
-# Fun port scanner built in python
+# Fun python port scanner
+  - coded for python 2.7
