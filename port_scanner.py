@@ -6,7 +6,7 @@ target = ''
 max_port = 81
 min_port = 70
 start_time = datetime.now()
-target = raw_input('Enter remote target: ')
+
 
 # Retreives ip address of remote target
 def get_remote_ip(target):
@@ -43,6 +43,8 @@ def scan_remote_host(target, port):
 
 def main():
     ######## Code starts here on run.
+    target = raw_input('Enter remote target: ')
+
     try:
         # Calls function to get/display ip address of host
         get_remote_ip(target)
@@ -51,9 +53,9 @@ def main():
         start_scan_time()
 
     # Basic error handling
-    except Exception, e:
-        print "Error: ", e
-        sys.exit()
+    except KeyboardInterrupt:
+        print ' You pressed Ctrl+C. Shutting down program'
+        sys.exit(1)
 
     # Loops through port range
     for port in range(min_port, max_port):
@@ -72,6 +74,6 @@ def main():
     stop_time = datetime.now()
     total_time = stop_time - start_time
     print 'Scanning duration: %s...' % total_time
-    
+
 if __name__ == "__main__":
     main()
