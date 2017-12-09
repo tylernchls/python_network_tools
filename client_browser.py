@@ -28,6 +28,7 @@ def client_request():
         print 'Length: ', len(response)
         print '=' * 80
 
+        
     except urllib2.HTTPError, e:
         code = e.code
         print 'code', code
