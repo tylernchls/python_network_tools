@@ -3,8 +3,8 @@ from socket import *
 from datetime import datetime
 
 target = ''
-max_port = 100
-min_port = 1
+max_port = 81
+min_port = 70
 start_time = datetime.now()
 target = raw_input('Enter remote target: ')
 
@@ -72,7 +72,6 @@ def main():
     stop_time = datetime.now()
     total_time = stop_time - start_time
     print 'Scanning duration: %s...' % total_time
-
-
+    
 if __name__ == "__main__":
     main()
