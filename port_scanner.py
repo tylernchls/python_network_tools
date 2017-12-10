@@ -3,8 +3,8 @@ from socket import *
 from datetime import datetime
 
 target = ''
-max_port = 81
-min_port = 70
+max_port = 500
+min_port = 1
 start_time = datetime.now()
 
 def get_remote_ip(target):
@@ -29,6 +29,7 @@ def scan_remote_host(target, port):
     try:
         # Creates new ipv4 socket, using tcp connection
         s = socket(AF_INET, SOCK_STREAM)
+        s.settimeout(0.25)
         response = s.connect_ex((target, port))
 
         if response == 0:
@@ -55,7 +56,6 @@ def main():
         try:
             response = scan_remote_host(target, port)
 
-            ##### Enables threading but no increase in speed
             # thread = threading.Thread(target=scan_remote_host, args=(target, int(port)))
             # thread.start()
 
