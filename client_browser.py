@@ -15,9 +15,9 @@ def client_request():
         print 'Status Code: \n', request.getcode()
         print '=' * 20
 
-        print '=' * 40
+        print '=' * 80
         print 'Request Header Info: \n', request.info()
-        print '=' * 40
+        print '=' * 80
 
         print '=' * 20
         print 'Server Info: \n', request.info()['server']
@@ -27,7 +27,7 @@ def client_request():
         print 'Site Data: \n', response
         print 'Length: ', len(response)
         print '=' * 80
-    
+
     except urllib2.HTTPError, e:
         code = e.code
         print 'code', code
