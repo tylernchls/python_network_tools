@@ -12,10 +12,10 @@ def mac_address_scan():
 
     reader = codecs.getreader("utf-8")
     obj = json.load(reader(response))
-    
+
     print '=' * 40
-    print (obj['result']['company']);
-    print (obj['result']['address']);
+    print (obj['result']['company'])
+    print (obj['result']['address'])
     print '=' * 40
 
 if __name__ == '__main__':
