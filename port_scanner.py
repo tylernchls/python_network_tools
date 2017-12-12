@@ -29,7 +29,7 @@ def scan_remote_host(target, port):
     try:
         # Creates new ipv4 socket, using tcp connection
         s = socket(AF_INET, SOCK_STREAM)
-        s.settimeout(0.25)
+        s.settimeout(0.5)
         response = s.connect_ex((target, port))
 
         if response == 0:
@@ -54,10 +54,10 @@ def main():
 
     for port in range(min_port, max_port):
         try:
-            response = scan_remote_host(target, port)
+            # response = scan_remote_host(target, port)
 
-            # thread = threading.Thread(target=scan_remote_host, args=(target, int(port)))
-            # thread.start()
+            thread = threading.Thread(target=scan_remote_host, args=(target, int(port)))
+            thread.start()
 
         except Exception, e:
             pass
