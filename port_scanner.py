@@ -3,7 +3,9 @@ from socket import *
 from datetime import datetime
 
 target = ''
-max_port = 500
+
+# Set port range below for scan
+max_port = 100
 min_port = 1
 start_time = datetime.now()
 
@@ -54,10 +56,11 @@ def main():
 
     for port in range(min_port, max_port):
         try:
-            # response = scan_remote_host(target, port)
+            response = scan_remote_host(target, port)
 
-            thread = threading.Thread(target=scan_remote_host, args=(target, int(port)))
-            thread.start()
+            # Implements threading but not working correctly yet
+            # thread = threading.Thread(target=scan_remote_host, args=(target, int(port)))
+            # thread.start()
 
         except Exception, e:
             pass

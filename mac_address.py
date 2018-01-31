@@ -1,3 +1,5 @@
+# Returns information on mac address entered
+
 import urllib2
 import json
 import codecs
