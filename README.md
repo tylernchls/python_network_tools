@@ -1,2 +1,2 @@
 # Fun Python Network Tools
-  - coded for python 2.7
+  - coded for python 3.6
