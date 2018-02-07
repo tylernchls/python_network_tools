@@ -1,36 +1,32 @@
-import urllib2
+import urllib.request
 
 def client_request():
-    try:
-        user_input = raw_input('Enter url || ex. google.com: ')
-        parse_input = 'http://www.' + user_input
-        request = urllib2.urlopen(parse_input)
-        response = request.read()
+    user_input = input('Enter url || ex. google.com: ')
+    parse_input = 'http://www.' + user_input
+    user_request = urllib.request.urlopen(parse_input)
+    response = user_request.read()
 
-        print '=' * 20
-        print 'The Url is: \n', request.geturl()
-        print '=' * 20
+    print ('=' * 20)
+    print ('The Url is: \n', user_request.geturl())
+    print ('=' * 20)
 
-        print '=' * 20
-        print 'Status Code: \n', request.getcode()
-        print '=' * 20
+    print ('=' * 20)
+    print ('Status Code: \n', user_request.getcode())
+    print ('=' * 20)
 
-        print '=' * 80
-        print 'Request Header Info: \n', request.info()
-        print '=' * 80
+    print ('=' * 80)
+    print ('Response Header Info: \n', user_request.info())
+    print ('=' * 80)
 
-        print '=' * 20
-        print 'Server Info: \n', request.info()['server']
-        print '=' * 20
+    print ('=' * 20)
+    print ('Server Info: \n', user_request.info()['server'])
+    print ('=' * 20)
 
-        print '=' * 80
-        print 'Site Data: \n', response
-        print 'Length: ', len(response)
-        print '=' * 80
-
-    except urllib2.HTTPError, e:
-        code = e.code
-        print 'code', code
+    print ('=' * 80)
+    print ('Site Data: \n', response)
+    print ('Length: ', len(response))
+    print ('=' * 80)
 
 if __name__ == '__main__':
     client_request()
+
